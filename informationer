@@ -1,0 +1,41 @@
+public class Informationer {
+	
+	private String køn;
+	private String navn;
+	private double højde;
+	private int vægt;
+
+
+
+	private String getKøn () {
+		return køn;
+	}
+
+	private void setKøn(String køn) {
+		this.køn = køn;
+	}
+
+	private String getNavn() {
+		return navn;
+	}
+
+	private void setNavn(String navn) {
+		this.navn = navn;
+	}
+
+	private double getHøjde() {
+		return højde;
+	}
+	
+	private void setHøjde(double højde) {
+		this.højde = højde;
+	}
+	
+	private int getVægt() {
+		return vægt;
+	}
+	
+	private void setVægt (int vægt) {
+		this.vægt = vægt;
+	}
+}
