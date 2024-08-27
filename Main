@@ -1,0 +1,118 @@
+//This project has been made without any classes. 
+//Reason for this is I did not know about OOP and was just learning the language.
+
+import java.util.Scanner;
+
+public class BmiApp {
+
+	public static void main(String[] args) {
+		
+		//fang fejlen
+		try {
+		
+			double undervægtig = 18.5;
+			double normalVægtig = 25;
+			double overVægtig = 30;
+			double sværtOvervægtig = 30.5;
+			
+			//modtag input
+			Scanner sc = new Scanner (System.in);
+			
+			System.out.println ("Indtast dit navn");
+			String navn = sc.nextLine();
+			
+			
+			System.out.println ("Hej " + navn + " Jeg skal bruge følgende infomrmationer for at udrenge din BMI");
+			System.out.println ("Hvad er dit køn. Tast 1 for mand, to for dame eller tre for andet køn");
+			
+			//køn gruppe
+			int mand = 1;
+			int dame = 2;
+			int andetKøn = 3;
+			
+			int kønValg = sc.nextInt();
+			
+			
+			//Køn valg definerer hvilken condition der følger
+			
+			if (kønValg == mand) {
+				System.out.println ("Du identificere dig som mand. Jeg mangler yderligere to informationer fra dig");
+				
+				
+				//linjeskift
+				sc.nextLine();
+				
+				System.out.println("Jeg mangler nu din højde og din vægt.");
+				System.out.println("Højde (Skrives i meter. Et eksempel: 1,85)");
+				
+				double mandHøjde = sc.nextDouble();
+				
+				System.out.println("Og din vægt?");
+				
+				int vægt = sc.nextInt();
+				
+				double mandUdregning = vægt / (mandHøjde * mandHøjde);
+				
+				//Tager udregning og runder op til nærmeste tal
+				double rundOp = Math.ceil(mandUdregning);
+				
+				System.out.println(rundOp);
+				
+				if (rundOp <= undervægtig) {
+					System.out.println("Du er undervægtig");
+				} else if (rundOp <= normalVægtig) {
+					System.out.println("Du er normalvægtig");
+				} else if (rundOp <= overVægtig) {
+					System.out.println("Du er overvægtig");
+				} else if (rundOp >= sværtOvervægtig) {
+					System.out.println("Du er svært overvægtig");
+				} else {
+					System.out.println("Du bliver nød til at prøve igen");
+				}
+				
+				
+			
+			} else if (kønValg == dame) {
+				System.out.println ("Du identificere dig som en kvinde. Jeg mangler yderligere to informationer fra dig");
+
+				//linjeskift
+				sc.nextLine();
+				
+				System.out.println("Jeg mangler nu din højde og din vægt.");
+				System.out.println("Højde (Skrivesi meter. Et eksempel: 1,85");
+				
+				double dameHøjde = sc.nextDouble();
+				
+				System.out.println("Og din vægt?");
+				
+				int dameVægt = sc.nextInt();
+				
+				//BMI Formel
+				double dameUdregning = dameVægt / (dameHøjde * dameHøjde);
+				//Vi runder op
+				double dameRundOp = Math.ceil(dameUdregning);
+				
+				System.out.println("Dit BMI tal er:" + dameRundOp);
+				
+				//Statement til at vurderer hvad du er
+				if (dameRundOp <= undervægtig) {
+					System.out.println("Du er undervægtig");
+				} else if (dameRundOp <= normalVægtig) {
+					System.out.println("Du er normalvægtig");
+				} else if (dameRundOp <= overVægtig) {
+					System.out.println("Du er overvægtig");
+				} else if (dameRundOp >= sværtOvervægtig) {
+					System.out.println("Du er svært overvægtig");
+				}
+				
+			} else {
+				System.out.println("Gå væk med dit andet køn");
+			}
+		} 
+			catch (Exception e) {
+			System.out.println ("Prøv igen");
+		}
+	
+	}
+
+}
